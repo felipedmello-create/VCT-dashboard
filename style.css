@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rajdhani:wght@300;400;500;600;700&family=Teko:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --vermelho-padrao: #ff4654;
+    --vermelho-secundario: #ba3a46;
+    --fundo: #0B0B0F;
+    --preto-hover: #18181B;
+    --destaque: #1A1A1A;
+    --dourado: #C5B174;
+    --off-white: #ECE8E1;
+    --texto: #B9B9B9;
+    --icons: #5E5E5E;
+    --borda: #FFFFFF10;
+    --vermelho-borda: #BD3944;
+    --borda-premium: #D6C06B59;
+}
+
+body {
+    margin: 10px;
+    height: 100vh ;
+    border: 2px solid var(--borda);
+    border-radius: 8px;
+    background-color: var(--fundo);
+}
+
+/*----Global Utility----*/
+
+.flex {
+    display: flex;
+}
+
+/*----Side Bar----*/
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid var(--borda);
+    border-radius: 8px;
+}
+
+.logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 5px;
+}
+
+.logo-box h1 {
+    color: var(--dourado);
+    font-family: 'Rajdhani';
+    font-weight: 800;
+}
+
+.logo-box p {
+    color: var(--dourado);
+    font-family: 'Inter';
+}
+
+.logo-box img {
+    width: 50px;
+}
+
+.side-item {
+    display: flex;
+    color: var(--texto);
+    text-transform: uppercase;
+    font-family: 'Inter';
+    padding: 10px 10px;
+    gap: 20px;
+    transition: 0.2s ease;
+}
+
+.side-item:hover{
+    background-color: var(--preto-hover);
+}
+
+.side-item.selected {
+    color: var(--dourado);
+    border-left: 3px solid var(--dourado);
+    background-color: var(--preto-hover);
+}
