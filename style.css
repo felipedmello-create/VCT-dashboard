@@ -16,17 +16,50 @@
     --off-white: #ECE8E1;
     --texto: #B9B9B9;
     --icons: #5E5E5E;
-    --borda: #FFFFFF10;
     --vermelho-borda: #BD3944;
-    --borda-premium: #D6C06B59;
+    --borda-premium: 3px solid #C5B174;
+    --borda: 2px solid #FFFFFF10;
+    --hover-premium: #E4CF7A;
+    --font-primary: 'Inter', sans-serif;
+    --font-title: 'Montserrat', sans-serif;
+    --font-stats: 'Teko', sans-serif;
 }
 
 body {
     margin: 10px;
     height: 100vh ;
-    border: 2px solid var(--borda);
+    border: var(--borda);
     border-radius: 8px;
     background-color: var(--fundo);
+    box-shadow: 0 0 20px 5px #FFFFFF10;
+    font-family: var(--font-primary);
+    color: var(--texto);
+    text-transform: uppercase;
+}
+
+section {
+    margin: 10px 0;
+}
+
+button.view-all {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: var(--borda);
+    padding: 2px;
+    color: var(--texto);
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+button.view-all:hover {
+    color: var(--hover-premium);
+    border-color: var(--hover-premium);
+    background-color: var(--preto-hover);
 }
 
 /*----Global Utility----*/
@@ -35,13 +68,26 @@ body {
     display: flex;
 }
 
+.space-between {
+    justify-content: space-between;
+}
+
+.bar {
+    border: var(--borda);
+}
+
+.bar.gold {
+    border: var(--borda-premium);
+}
+
 /*----Side Bar----*/
 
 .sidebar {
     display: flex;
     flex-direction: column;
-    border-right: 2px solid var(--borda);
+    border-right: var(--borda);
     border-radius: 8px;
+    user-select: none;
 }
 
 .logo-box {
@@ -60,7 +106,6 @@ body {
 
 .logo-box p {
     color: var(--dourado);
-    font-family: 'Inter';
 }
 
 .logo-box img {
@@ -69,9 +114,6 @@ body {
 
 .side-item {
     display: flex;
-    color: var(--texto);
-    text-transform: uppercase;
-    font-family: 'Inter';
     padding: 10px 10px;
     gap: 20px;
     transition: 0.2s ease;
@@ -83,6 +125,137 @@ body {
 
 .side-item.selected {
     color: var(--dourado);
-    border-left: 3px solid var(--dourado);
+    border-left: var(--borda-premium);
     background-color: var(--preto-hover);
+}
+
+/*----Main Page----*/
+
+#dashboard {
+    width: 100%;
+    padding: 10px;
+}
+
+/*----Top Bar----*/
+
+.topbar {
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    border-bottom: var(--borda);
+    padding: 10px;
+}
+
+.gap {
+    gap: 10px;
+}
+
+.topbar input {
+    color: var(--texto);
+    background: none;
+    border: var(--borda);
+    border-radius: 4px;
+    font-size: 0.625rem;
+    padding: 0.5rem;
+    padding-left: 25px;
+}
+
+.box-search {
+    position: relative;
+}
+
+.box-search i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*----Highlights----*/
+
+.keypoint-box {
+    display: flex;
+    align-items: center;
+    border: var(--borda);
+    border-bottom: var(--borda-premium);
+    padding: 1rem;
+    color: var(--dourado);
+    gap: 0.625rem;
+}
+
+/*----MVP----*/
+
+.box {
+    padding: 10px;
+    border: var(--borda);
+}
+
+.mvp-icon {
+    height: 200px;
+    width: 200px;
+    border: var(--borda);
+    border-bottom: var(--borda-premium);
+    object-fit: cover;
+}
+
+.mvp-overview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.team-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.box.stats {
+    width: 130px;
+    border-bottom: var(--borda-premium);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*----MVP's Graph----*/
+
+.box.mvp-graph {
+    width: 100%;
+}
+
+canvas {
+    width: 100%;
+}
+
+.btn-group {
+    display: flex;
+}
+
+.btn-group button {
+    background-color: var(--fundo);
+    color: var(--texto);
+    border: 3px solid transparent;;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    transition: 0.2s;
+}
+
+.btn-group button:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.btn-group button:last-child {
+    border-radius: 0 6px 6px 0; 
+}
+
+.btn-group button.active {
+    color: var(--dourado);
+    background-color: var(--preto-hover);
+    border: var(--borda-premium);
+}
+
+.btn-group button:hover {
+    background-color: #444444;
 }

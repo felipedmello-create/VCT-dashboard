@@ -45,74 +45,165 @@
       </div>
     </div>
 
-    <section>
+    <section id="dashboard">
         <div class="topbar flex">
-            <i class=""></i>
-            <div class="box-head">
-                <h3></h3>
-                <h5></h5>
+            <div class="flex gap">
+                <i class="fa-solid fa-bars-staggered fa-3x"></i>
+                <div class="box-head">
+                    <h1>dashboard</h1>
+                    <p>valorant champions paris 2025</p>
+                </div>
             </div>
-            <div class="box-search"></div>
+           
+            <div class="box-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text">
+            </div>
         </div>
 
-        <section class="space-between">
+        <section class="flex space-between">
             <div class="keypoint-box">
-                <i></i>
-                <p></p>
-                <p class="featured"></p>
+                <i class="fa-solid fa-trophy fa-3x"></i>
+                <div class="keypoint-box-intern">
+                    <p>total de partidas</p>
+                    <h1>82</h1>
+                </div>
             </div>
             <div class="keypoint-box">
-                <i></i>
-                <p></p>
-                <p class="featured"></p>
+                <i class="fa-solid fa-people-group fa-3x"></i>
+                <div class="keypoint-box-intern">
+                    <p>total squads</p>
+                    <h1>16</h1>
+                </div>
             </div>
             <div class="keypoint-box">
-                <i></i>
-                <p></p>
-                <p class="featured"></p>
+                <i class="fa-solid fa-circle-user fa-3x"></i>
+                <div class="keypoint-box-intern">
+                    <p>total players</p>
+                    <h1>80</h1>
+                </div>
             </div>
             <div class="keypoint-box">
-                <i></i>
-                <p></p>
-                <p class="featured"></p>
+                <i class="fa-solid fa-crosshairs fa-3x"></i>
+                <div class="keypoint-box-intern">
+                    <p>total rounds</p>
+                    <h1>1.642</h1>
+                </div>
             </div>
             <div class="keypoint-box">
-                <i></i>
-                <p></p>
-                <p class="featured"></p>
-                <p></p>
+                <i class="fa-solid fa-hourglass fa-3x"></i>
+                <div class="keypoint-box-intern">
+                    <p>Event's Duration</p>
+                    <h1>17 days</h1>
+                    <p>aug 31 - sep 17</p>
+                </div>
             </div>
         </section>
 
-        <section>
-            <div class="box">
-                <div class="top-box"></div>
-                <img class="mvp-icon" src="" alt="">
-                <h1></h1>
-                <div class="flex">
-                    <i class="team-icon"></i>
-                    <p></p>
-                </div>
+        <section class="flex" style="gap: 20px; max-height: 350px;">
+            <div class="box flex space-between" style="flex-direction: column;">
 
-                <div class="box player-overview">
-                    <div class="box">
-                        <h1></h1>
-                        <p></p>
+                <div>
+                    <div class="top-box">
+                        <p>mvp</p>
                     </div>
+                    <div class="flex" style="gap: 20px; margin-top: 10px;">
 
-                    <div class="box">
-                        <h1></h1>
-                        <p></p>
+                        <img class="mvp-icon" src="images/brawk.jpg" alt="">
+
+                        <div class="mvp-overview">
+                            <div>
+                                <h1>brawk</h1>
+                                <div class="flex" style="align-items: center; gap: 5px;">
+                                    <img src="images/team-logos/nrg-logo.png" alt="" class="team-icon">
+                                    <p>nrg</p>
+                                </div> 
+                            </div>
+                        
+                            <div class="bar gold"></div>
+
+                            <div class="flex" style="gap: 20px;">
+                                <div class="box stats">
+                                    <h1>1.17</h1>
+                                    <p>k:d</p>
+                                </div>
+
+                                <div class="box stats">
+                                    <h1>224.6</h1>
+                                    <p>acs</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
+                
+                
                 <button class="view-all">
-
-                    <i></i>
+                    <span></span>
+                    <p>view all player data</p>
+                    <i class="fa-solid fa-angle-right"></i>
                 </button>
-            </div>
-            <div class="box championship-graph">
 
+            </div>
+            <div class="box mvp-graph">
+                <div class="top-box flex space-between">
+                    <p>desempenho</p>
+
+                    <div class="btn-group">
+                        <button class="active">K:D</button>
+                        <button>ACS</button>
+                    </div>
+                </div>
+
+                <canvas id="graphicKD"></canvas>
+
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    const ctx = document.getElementById('graphicKD');
+
+                    new Chart(ctx, {
+                        type: 'line',
+                            data: {
+                                labels: ['GROUP STAGE', 'QUARTERFINALS', 'SEMIFINAIS', 'UB FINAL', 'GRANDE FINAL'],
+                                datasets: [{
+                                    label: 'K/D',
+                                    data: [0.96, 2.69, 0.81, 1.25, 1.37],
+                                    borderColor: '#D6C06B',
+                                    borderWidth: 2,
+                                    pointBackgroundColor: '#F0E08E',
+                                    pointRadius: 5,
+                                    fill: true,
+                                    backgroundColor: '#111111',
+                                    tension: 0,
+                                }]
+                            },
+                        options: {
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    grid: {
+                                        color: 'rgba(0,0,0,0.05)',
+                                        borderDash: [5, 5]
+                                    },
+                                    ticks: {
+                                        maxRotation: 0,
+                                        minRotation: 0
+                                    }
+                                },
+                                x: {
+                                    grid: {
+                                        display: false
+                                    }
+                                }
+                            }
+                        }
+                    });
+                </script>
             </div>
         </section>
 
