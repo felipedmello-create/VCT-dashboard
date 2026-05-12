@@ -27,7 +27,7 @@
 
 body {
     margin: 10px;
-    height: 100vh ;
+    height: 100%;
     border: var(--borda);
     border-radius: 8px;
     background-color: var(--fundo);
@@ -259,3 +259,28 @@ canvas {
 .btn-group button:hover {
     background-color: #444444;
 }
+
+/*---Statistics---*/
+
+/*----Table----*/
+
+table.statistics {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.statistics th {
+    border-bottom: var(--borda);
+}
+
+table.statistics td, table.statistics th {
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+table.statistics td img {
+    vertical-align: middle;
+}
+
+/*----Players Statistics----*/

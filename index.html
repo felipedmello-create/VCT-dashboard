@@ -100,7 +100,7 @@
             </div>
         </section>
 
-        <section class="flex" style="gap: 20px; max-height: 350px;">
+        <section class="flex" style="gap: 20px;">
             <div class="box flex space-between" style="flex-direction: column;">
 
                 <div>
@@ -145,13 +145,13 @@
                 </button>
 
             </div>
-            <div class="box mvp-graph">
+            <div class="box mvp-graph" style="max-height: 350px; padding-bottom: 40px;">
                 <div class="top-box flex space-between">
                     <p>desempenho</p>
 
                     <div class="btn-group">
-                        <button class="active">K:D</button>
-                        <button>ACS</button>
+                        <button class="active" data-type="kd" onclick="setChart('kd')">K:D</button>
+                        <button data-type="acs" onclick="setChart('acs')">ACS</button>
                     </div>
                 </div>
 
@@ -161,13 +161,18 @@
                 <script>
                     const ctx = document.getElementById('graphicKD');
 
-                    new Chart(ctx, {
+                    const chartData = {
+                        kd: [0.96, 2.69, 0.81, 1.25, 1.37],
+                        acs: [201, 285, 193, 229, 238]
+                    }
+
+                    const myChart = new Chart(ctx, {
                         type: 'line',
                             data: {
                                 labels: ['GROUP STAGE', 'QUARTERFINALS', 'SEMIFINAIS', 'UB FINAL', 'GRANDE FINAL'],
                                 datasets: [{
                                     label: 'K/D',
-                                    data: [0.96, 2.69, 0.81, 1.25, 1.37],
+                                    data: chartData.kd,
                                     borderColor: '#D6C06B',
                                     borderWidth: 2,
                                     pointBackgroundColor: '#F0E08E',
@@ -178,6 +183,8 @@
                                 }]
                             },
                         options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
                             plugins: {
                                 legend: {
                                     display: false
@@ -190,52 +197,131 @@
                                         color: 'rgba(0,0,0,0.05)',
                                         borderDash: [5, 5]
                                     },
-                                    ticks: {
-                                        maxRotation: 0,
-                                        minRotation: 0
-                                    }
                                 },
                                 x: {
                                     grid: {
                                         display: false
+                                    },
+                                    ticks: {
+                                        maxRotation: 0,
+                                        minRotation: 0,
+                                        autoSkip: false
                                     }
                                 }
                             }
                         }
                     });
+                    function setChart(type) {
+                        myChart.data.datasets[0].data = chartData[type];
+                        myChart.update()
+                    }
                 </script>
             </div>
         </section>
 
         <section class="flex">
             <div class="box">
-                <div class="topbox"></div>
+                <div class="topbox">
+                    <p>team standings</p>
+                </div>
+
+                <table class="statistics">
+                    <tr>
+                        <th>#</th>
+                        <th>team</th>
+                        <th>wins</th>
+                        <th>losses</th>
+                        <th>winrate</th>
+                        <th>best map</th>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <img class="team-icon" src="images/team-logos/nrg-logo.png" alt="">
+                            nrg
+                        </td>
+                        <td>6</td>
+                        <td>0</td>
+                        <td>100%</td>
+                        <td>corrode</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <img class="team-icon" src="images/team-logos/fnatic-logo.png" alt="">
+                            fnatic
+                        </td>
+                        <td>5</td>
+                        <td>2</td>
+                        <td>71%</td>
+                        <td>haven</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <img class="team-icon" src="images/team-logos/drx-logo.png" alt="">
+                            drx
+                        </td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>62%</td>
+                        <td>bind</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <img class="team-icon" src="images/team-logos/paper-rex-logo.png" alt="">
+                            paper rex
+                        </td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>66%</td>
+                        <td>ascent</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <img class="team-icon" src="images/team-logos/mibr-logo.png" alt="">
+                            mibr
+                        </td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>50%</td>
+                        <td>corrode</td>
+                    </tr>
+                </table>
+
+                <button class="view-all">
+                    <span></span>
+                    <p>view all teams</p>
+                    <i class="fa-solid fa-angle-right"></i>
+                </button>
+            </div>
+            <div class="box">
+                <div class="topbox">
+                    <p>players statistics</p>
+                </div>
+
+                <div class="btn-group">
+                    <button class="active">kills</button>
+                    <button>k:d</button>
+                </div>
 
                 <table>
 
                 </table>
 
                 <button class="view-all">
-
-                    <i></i>
+                    <span></span>
+                    <p>view all players</p>
+                    <i class="fa-solid fa-angle-right"></i>
                 </button>
             </div>
             <div class="box">
-                <div class="topbox"></div>
-
-                <input type="text">
-
-                <table>
-
-                </table>
-
-                <button class="view-all">
-
-                    <i></i>
-                </button>
-            </div>
-            <div class="box">
-                <div class="topbox"></div>
+                <div class="topbox">
+                    <p>maps statistics</p>
+                </div>
             </div>
         </section>
 
