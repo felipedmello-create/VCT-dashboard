@@ -109,7 +109,7 @@
                     </div>
                     <div class="flex" style="gap: 20px; margin-top: 10px;">
 
-                        <img class="mvp-icon" src="images/brawk.jpg" alt="">
+                        <img class="mvp-icon" src="images/players/brawk.jpg" alt="">
 
                         <div class="mvp-overview">
                             <div>
@@ -220,7 +220,7 @@
         </section>
 
         <section class="flex">
-            <div class="box">
+            <div class="box statistics">
                 <div class="topbox">
                     <p>team standings</p>
                 </div>
@@ -298,18 +298,28 @@
                     <i class="fa-solid fa-angle-right"></i>
                 </button>
             </div>
-            <div class="box">
-                <div class="topbox">
+            <div class="box statistics">
+                <div class="topbox" style="display: flex; justify-content: space-between; align-items: center;">
                     <p>players statistics</p>
+
+                    <div class="btn-group p2">
+                        <button class="active" data-stat="kills">KILLS</button>
+                        <button data-stat="kd">K:D</button>
+                        <button data-stat="acs">ACS</button>
+                    </div>
                 </div>
 
-                <div class="btn-group">
-                    <button class="active">kills</button>
-                    <button>k:d</button>
-                </div>
-
-                <table>
-
+                <table class="statistics">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>player</th>
+                            <th>team</th>
+                            <th id="col-header">KILLS</th>
+                        </tr>  
+                    </thead>
+                    
+                    <tbody id="table-body"></tbody>
                 </table>
 
                 <button class="view-all">

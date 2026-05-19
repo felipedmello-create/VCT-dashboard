@@ -204,7 +204,7 @@ button.view-all:hover {
     justify-content: space-between;
 }
 
-.team-icon {
+.team-icon, .nat-icon {
     width: 30px;
     height: 30px;
     object-fit: contain;
@@ -262,6 +262,12 @@ canvas {
 
 /*---Statistics---*/
 
+.box.statistics {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 /*----Table----*/
 
 table.statistics {
@@ -284,3 +290,8 @@ table.statistics td img {
 }
 
 /*----Players Statistics----*/
+
+.btn-group.p2 button {
+    padding: 2px 4px;
+    border-width: 2px;
+}
