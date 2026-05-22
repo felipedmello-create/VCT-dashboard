@@ -63,14 +63,14 @@ const data = {
 }
 
 function render(stat) {
-    const sorted = [...data[stat]].sort((a, b) => b.value - a.value); // ✅ erro 1
+    const sorted = [...data[stat]].sort((a, b) => b.value - a.value);
 
-    const max = sorted[0].value; // ✅ erro 2
+    const max = sorted[0].value;
     const body = document.getElementById('table-body');
 
     body.innerHTML = sorted.map((p, i) => {
-        const val = p.value;                                    // ✅ erro 2
-        const pct = Math.round((p.value / max) * 100);         // ✅ erro 2
+        const val = p.value;                                    
+        const pct = Math.round((p.value / max) * 100);        
         return `<tr>
             <td>${i + 1}</td>
             <td><img src="${p.flag}" class="nat-icon"> ${p.name}</td>
